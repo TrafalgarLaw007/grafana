@@ -13,7 +13,7 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
       builder
         .addNumberInput({
           path: 'width',
-          name: 'Column width',
+          name: '列宽',
           settings: {
             placeholder: 'auto',
             min: 20,
@@ -23,7 +23,7 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
         })
         .addRadio({
           path: 'align',
-          name: 'Column alignment',
+          name: '列对齐方式',
           settings: {
             options: [
               { label: 'auto', value: null },
@@ -36,7 +36,7 @@ export const plugin = new PanelPlugin<Options, CustomFieldConfig>(TablePanel)
         })
         .addSelect({
           path: 'displayMode',
-          name: 'Cell display mode',
+          name: '单元显示模式',
           description: 'Color text, background, show as gauge, etc',
           settings: {
             options: [
