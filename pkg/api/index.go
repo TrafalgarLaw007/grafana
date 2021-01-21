@@ -28,7 +28,7 @@ func getProfileNode(c *models.ReqContext) *dtos.NavLink {
 
 	children := []*dtos.NavLink{
 		{
-			Text: "Preferences", Id: "profile-settings", Url: setting.AppSubUrl + "/profile", Icon: "sliders-v-alt",
+			Text: "偏好设置", Id: "profile-settings", Url: setting.AppSubUrl + "/profile", Icon: "sliders-v-alt",
 		},
 	}
 
@@ -160,15 +160,15 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 	}
 
 	dashboardChildNavs := []*dtos.NavLink{
-		{Text: "Home", Id: "home", Url: setting.AppSubUrl + "/", Icon: "home-alt", HideFromTabs: true},
+		{Text: "首页", Id: "home", Url: setting.AppSubUrl + "/", Icon: "home-alt", HideFromTabs: true},
 		{Text: "Divider", Divider: true, Id: "divider", HideFromTabs: true},
-		{Text: "Manage", Id: "manage-dashboards", Url: setting.AppSubUrl + "/dashboards", Icon: "sitemap"},
-		{Text: "Playlists", Id: "playlists", Url: setting.AppSubUrl + "/playlists", Icon: "presentation-play"},
+		{Text: "管理", Id: "manage-dashboards", Url: setting.AppSubUrl + "/dashboards", Icon: "sitemap"},
+		{Text: "播放列表", Id: "playlists", Url: setting.AppSubUrl + "/playlists", Icon: "presentation-play"},
 	}
 
 	if c.IsSignedIn {
 		dashboardChildNavs = append(dashboardChildNavs, &dtos.NavLink{
-			Text: "Snapshots",
+			Text: "快照",
 			Id:   "snapshots",
 			Url:  setting.AppSubUrl + "/dashboard/snapshots",
 			Icon: "camera",
@@ -176,9 +176,9 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 	}
 
 	navTree = append(navTree, &dtos.NavLink{
-		Text:       "Dashboards",
+		Text:       "仪表盘",
 		Id:         "dashboards",
-		SubTitle:   "Manage dashboards & folders",
+		SubTitle:   "管理仪表盘 & 文件夹",
 		Icon:       "apps",
 		Url:        setting.AppSubUrl + "/",
 		SortWeight: dtos.WeightDashboard,
@@ -187,9 +187,9 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if setting.ExploreEnabled && (c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR || setting.ViewersCanEdit) {
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Explore",
+			Text:       "探索",
 			Id:         "explore",
-			SubTitle:   "Explore your data",
+			SubTitle:   "探索您的数据",
 			Icon:       "compass",
 			SortWeight: dtos.WeightExplore,
 			Url:        setting.AppSubUrl + "/explore",
@@ -202,16 +202,16 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if setting.AlertingEnabled && (c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR) {
 		alertChildNavs := []*dtos.NavLink{
-			{Text: "Alert Rules", Id: "alert-list", Url: setting.AppSubUrl + "/alerting/list", Icon: "list-ul"},
+			{Text: "告警规则", Id: "alert-list", Url: setting.AppSubUrl + "/alerting/list", Icon: "list-ul"},
 			{
-				Text: "Notification channels", Id: "channels", Url: setting.AppSubUrl + "/alerting/notifications",
+				Text: "告警通道", Id: "channels", Url: setting.AppSubUrl + "/alerting/notifications",
 				Icon: "comment-alt-share",
 			},
 		}
 
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Alerting",
-			SubTitle:   "Alert rules & notifications",
+			Text:       "告警",
+			SubTitle:   "告警规则 & 通知",
 			Id:         "alerting",
 			Icon:       "bell",
 			Url:        setting.AppSubUrl + "/alerting/list",

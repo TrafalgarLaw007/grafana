@@ -35,7 +35,7 @@ export const ForgottenPassword: FC = () => {
         <p>An email with a reset link has been sent to the email address. You should receive it shortly.</p>
         <Container margin="md" />
         <LinkButton variant="primary" href={loginHref}>
-          Back to login
+          返回登录
         </LinkButton>
       </div>
     );
@@ -44,19 +44,19 @@ export const ForgottenPassword: FC = () => {
     <Form onSubmit={sendEmail}>
       {({ register, errors }) => (
         <>
-          <Legend>Reset password</Legend>
+          <Legend>重置密码</Legend>
           <Field
             label="User"
             description="Enter your information to get a reset link sent to you"
             invalid={!!errors.userOrEmail}
             error={errors?.userOrEmail?.message}
           >
-            <Input placeholder="Email or username" name="userOrEmail" ref={register({ required: true })} />
+            <Input placeholder="邮箱或者用户名" name="userOrEmail" ref={register({ required: true })} />
           </Field>
           <HorizontalGroup>
-            <Button>Send reset email</Button>
+            <Button>发送重置电子邮件</Button>
             <LinkButton variant="link" href={loginHref}>
-              Back to login
+              返回登录
             </LinkButton>
           </HorizontalGroup>
 

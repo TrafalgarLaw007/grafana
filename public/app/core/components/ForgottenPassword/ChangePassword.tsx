@@ -20,7 +20,7 @@ export const ChangePassword: FC<Props> = ({ onSubmit, onSkip }) => {
     <Form onSubmit={submit}>
       {({ errors, register, getValues }) => (
         <>
-          <Field label="New password" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
+          <Field label="新密码" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
             <Input
               autoFocus
               type="password"
@@ -30,7 +30,7 @@ export const ChangePassword: FC<Props> = ({ onSubmit, onSkip }) => {
               })}
             />
           </Field>
-          <Field label="Confirm new password" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
+          <Field label="确认新密码" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
             <Input
               type="password"
               name="confirmNew"
@@ -42,7 +42,7 @@ export const ChangePassword: FC<Props> = ({ onSubmit, onSkip }) => {
           </Field>
           <VerticalGroup>
             <Button type="submit" className={submitButton}>
-              Submit
+              提交
             </Button>
 
             {onSkip && (
@@ -51,7 +51,7 @@ export const ChangePassword: FC<Props> = ({ onSubmit, onSkip }) => {
                 placement="bottom"
               >
                 <LinkButton variant="link" onClick={onSkip} aria-label={selectors.pages.Login.skip}>
-                  Skip
+                  跳过
                 </LinkButton>
               </Tooltip>
             )}

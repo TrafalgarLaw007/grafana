@@ -34,7 +34,7 @@ export const LoginForm: FC<Props> = ({ children, onSubmit, isLoggingIn, password
                 autoFocus
                 name="user"
                 autoCapitalize="none"
-                ref={register({ required: 'Email or username is required' })}
+                ref={register({ required: '请填写邮箱或用户名' })}
                 placeholder={loginHint}
                 aria-label={selectors.pages.Login.username}
               />
@@ -44,12 +44,12 @@ export const LoginForm: FC<Props> = ({ children, onSubmit, isLoggingIn, password
                 name="password"
                 type="password"
                 placeholder={passwordHint}
-                ref={register({ required: 'Password is required' })}
+                ref={register({ required: '请填写密码' })}
                 aria-label={selectors.pages.Login.password}
               />
             </Field>
             <Button aria-label={selectors.pages.Login.submit} className={submitButton} disabled={isLoggingIn}>
-              {isLoggingIn ? 'Logging in...' : 'Log in'}
+              {isLoggingIn ? '登录中...' : '登 录'}
             </Button>
             {children}
           </>
