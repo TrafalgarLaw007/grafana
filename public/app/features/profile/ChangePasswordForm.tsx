@@ -25,11 +25,11 @@ export const ChangePasswordForm: FC<Props> = ({ onChangePassword, isSaving }) =>
         {({ register, errors, getValues }) => {
           return (
             <>
-              <Field label="Old password" invalid={!!errors.oldPassword} error={errors?.oldPassword?.message}>
+              <Field label="旧密码" invalid={!!errors.oldPassword} error={errors?.oldPassword?.message}>
                 <Input type="password" name="oldPassword" ref={register({ required: 'Old password is required' })} />
               </Field>
 
-              <Field label="New password" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
+              <Field label="新密码" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
                 <Input
                   type="password"
                   name="newPassword"
@@ -43,7 +43,7 @@ export const ChangePasswordForm: FC<Props> = ({ onChangePassword, isSaving }) =>
                 />
               </Field>
 
-              <Field label="Confirm password" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
+              <Field label="确认密码" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
                 <Input
                   type="password"
                   name="confirmNew"
@@ -55,10 +55,10 @@ export const ChangePasswordForm: FC<Props> = ({ onChangePassword, isSaving }) =>
               </Field>
               <HorizontalGroup>
                 <Button variant="primary" disabled={isSaving}>
-                  Change Password
+                  更改密码
                 </Button>
                 <LinkButton variant="secondary" href={`${config.appSubUrl}/profile`}>
-                  Cancel
+                  取消
                 </LinkButton>
               </HorizontalGroup>
             </>
