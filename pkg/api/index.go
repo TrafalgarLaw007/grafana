@@ -120,7 +120,7 @@ func getAppLinks(c *models.ReqContext) ([]*dtos.NavLink, error) {
 		if len(appLink.Children) > 0 && c.OrgRole == models.ROLE_ADMIN {
 			appLink.Children = append(appLink.Children, &dtos.NavLink{Divider: true})
 			appLink.Children = append(appLink.Children, &dtos.NavLink{
-				Text: "Plugin Config", Icon: "cog", Url: setting.AppSubUrl + "/plugins/" + plugin.Id + "/",
+				Text: "插件配置", Icon: "cog", Url: setting.AppSubUrl + "/plugins/" + plugin.Id + "/",
 			})
 		}
 
@@ -137,20 +137,20 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if hasEditPerm {
 		children := []*dtos.NavLink{
-			{Text: "Dashboard", Icon: "apps", Url: setting.AppSubUrl + "/dashboard/new"},
+			{Text: "仪表盘", Icon: "apps", Url: setting.AppSubUrl + "/dashboard/new"},
 		}
 		if c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR {
 			children = append(children, &dtos.NavLink{
-				Text: "Folder", SubTitle: "Create a new folder to organize your dashboards", Id: "folder",
+				Text: "文件夹", SubTitle: "创建一个新文件夹来组织您的仪表盘", Id: "folder",
 				Icon: "folder-plus", Url: setting.AppSubUrl + "/dashboards/folder/new",
 			})
 		}
 		children = append(children, &dtos.NavLink{
-			Text: "Import", SubTitle: "Import dashboard from file or Grafana.com", Id: "import", Icon: "import",
+			Text: "导入", SubTitle: "从文件或Grafana.com导入仪表盘", Id: "import", Icon: "import",
 			Url: setting.AppSubUrl + "/dashboard/import",
 		})
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Create",
+			Text:       "创建",
 			Id:         "create",
 			Icon:       "plus",
 			Url:        setting.AppSubUrl + "/dashboard/new",
